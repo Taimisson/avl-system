@@ -2,7 +2,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 from datetime import date
 
-@dataclass(slots=True)
+@dataclass(slots=True) # isso é para otimizar o desempenho pois é uma classe leve
 class Person:
     cpf: str 
     rg: str

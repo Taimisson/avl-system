@@ -25,9 +25,11 @@ def load_people(path: str) -> Tuple[List[Person], AVLTree, AVLTree, AVLTree]:
                 cidade=cidade
             )
             people.append(person)
-            cpf_index.insert(person.cpf, person)
-            nome_index.insert(person.nome.lower(), person)
-            nascimento_index.insert(person.nascimento, person)
+            # Armazena apenas o índice da pessoa na lista
+            idx = len(people) - 1
+            cpf_index.insert(person.cpf, idx)
+            nome_index.insert(person.nome.lower(), idx)
+            nascimento_index.insert(person.nascimento, idx)
 
     return people, cpf_index, nome_index, nascimento_index
             
