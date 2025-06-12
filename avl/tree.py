@@ -16,8 +16,8 @@ class Node(Generic[K, R]):
     def __init__(self, key: K, ref: R):
         self.key = key
         self.refs: List[R] = [ref]
-        self.left: Optional[Node[K, R]] = None
-        self.right: Optional[Node[K, R]] = None
+        self.left: Optional[Node[K, R]] = None # o optional é porque o nó pode ser nulo
+        self.right: Optional[Node[K, R]] = None # o optional é porque o nó pode ser nulo
         self.height: int = 1;
 
     def __str__(self) -> str:
@@ -86,35 +86,35 @@ class AVLTree(Generic[K, R]):
     def search(self, key: K) -> Optional[List[R]]:
         n = self.root
         while n: 
-            if key == n.key: return n.refs
-            n = n.left if key < n.key else n.right
+            if key == n.key: return n.refs # se a chave for igual, retorna as referências
+            n = n.left if key < n.key else n.right 
         return None
 
     ## ---- intervalo ordenavel 
 
-    def range_query(self, lo: K, hi: K) -> List[R]:
+    def range_query(self, lo: K, hi: K) -> List[R]: # busca por intervalo ordenavel
         res: List[R] = []
-        def _dfs(node: Optional[Node[K, R]]):
+        def _dfs(node: Optional[Node[K, R]]): # busca em profundidade
             if not node: return
-            if lo <= node.key: _dfs(node.left)
+            if lo <= node.key: _dfs(node.left) 
             if lo <= node.key <= hi: res.extend(node.refs)
             if node.key <= hi: _dfs(node.right)
         _dfs(self.root)
         return res
 
     # ---- prefixo de string    
-    def prefix_query(self, prefix: str) -> List[R]:
-        res: List[R] = []
-        def _dfs(node: Optional[Node[K, R]]):
+    def prefix_query(self, prefix: str) -> List[R]: # busca por prefixo
+        res: List[R] = [] # lista de referências
+        def _dfs(node: Optional[Node[K, R]]): # busca em profundidade
             if not node: return 
-            if node.key.startswith(prefix):
-                res.extend(node.refs)
-                _dfs(node.left); _dfs(node.right)
+            if node.key.startswith(prefix): # se a chave começa com o prefixo
+                res.extend(node.refs) # adiciona as referências ao resultado 
+                _dfs(node.left); _dfs(node.right) # continua a busca nas subárvores
             elif node.key < prefix:
                 _dfs(node.right)
             else:
-                _dfs(node.left)
-        _dfs(self.root)
+                _dfs(node.left) 
+        _dfs(self.root) 
         return res
     
     # ---- remocao
