@@ -10,7 +10,7 @@ def load_people(path: str) -> Tuple[List[Person], AVLTree, AVLTree, AVLTree]:
     cpf_index, nome_index, nascimento_index = AVLTree(), AVLTree(), AVLTree()
 
     with open(path, encoding="utf-8-sig", newline="") as file:
-        reader = csv.reader(file, delimiter=",") # separador 
+        reader = csv.reader(file, delimiter=";") # alterado para ponto e vírgula
         next(reader)  # pula a linha de cabeçalho
         for row in reader:
             if len(row) != 5: 
