@@ -17,7 +17,7 @@ def run_menu(pessoas, index_cpf: AVLTree, index_nome: AVLTree, index_nascimento:
         if op == 1:
             try: k = input("CPF (11 dígitos, só números): ").strip().zfill(11)
             except ValueError: print("CPF inválido"); continue 
-            indices = index_cpf.search(k)
+            indices = index_cpf.search(k) # busca o cpf na árvore
             if indices:
                 for idx in indices:
                     print(pessoas[idx])
@@ -36,7 +36,7 @@ def run_menu(pessoas, index_cpf: AVLTree, index_nome: AVLTree, index_nascimento:
                 d1 = datetime.strptime(input("Digite a data inicial: "), "%d/%m/%Y").date()
                 d2 = datetime.strptime(input("Digite a data final: "), "%d/%m/%Y").date()
             except ValueError: print("Data inválida"); continue 
-            if d1 > d2: d1, d2 = d2, d1
+            if d1 > d2: d1, d2 = d2, d1 # se a data inicial for maior que a final, inverte
             indices = index_nascimento.range_query(d1, d2)
             if indices:
                 for idx in indices:

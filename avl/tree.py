@@ -92,7 +92,7 @@ class AVLTree(Generic[K, R]):
 
     ## ---- intervalo ordenavel 
 
-    def range_query(self, lo: K, hi: K) -> List[R]: # busca por intervalo ordenavel
+    def range_query(self, lo: K, hi: K) -> List[R]: 
         res: List[R] = []
         def _dfs(node: Optional[Node[K, R]]): # busca em profundidade
             if not node: return
