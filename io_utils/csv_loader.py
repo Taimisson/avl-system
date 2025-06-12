@@ -1,3 +1,9 @@
+"""
+Árvore AVL genérica
+
+Autor: Taimisson de Carvalho Schardosim e Guilherme Lenzi   Data: 27/05/2025
+"""
+
 from datetime import datetime
 import csv
 

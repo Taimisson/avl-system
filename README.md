@@ -90,6 +90,7 @@ python gerar_dados.py
 ```
 
 ## Autor
+Guilherme Lenzi de Oliveira
 Taimisson de Carvalho Schardosim
 
 ## Data

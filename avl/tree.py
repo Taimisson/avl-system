@@ -1,8 +1,7 @@
 """
-Árvore AVL genérica com suporte a múltiplas referências por chave
-(partindo da sua implementação original).
+Árvore AVL genérica
 
-Autor: Taimisson de Carvalho Schardosim   Data: 27/05/2025
+Autor: Taimisson de Carvalho Schardosim e Guilherme Lenzi   Data: 27/05/2025
 """
 
 from __future__ import annotations
